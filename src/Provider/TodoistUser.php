@@ -24,17 +24,17 @@ class TodoistUser implements ResourceOwnerInterface
 
   public function getId()
   {
-    return $this->data['user']['id'];
+    return $this->getValueByKey($this->response, 'id');
   }
 
   public function getEmail()
   {
-    return $this->data['user']['email'];
+    return $this->getValueByKey($this->response, 'email');
   }
 
   public function getName()
   {
-    return $this->data['user']['full_name'];
+    return $this->getValueByKey($this->response, 'full_name');
   }
 
   public function toArray()
