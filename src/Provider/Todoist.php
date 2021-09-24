@@ -50,6 +50,15 @@ class Todoist extends AbstractProvider
     return ['data:read_write'];
   }
 
+  protected function getAuthorizationHeaders($token = null)
+  {
+    return [
+      'X-Access-Token' => $token,
+      'X-Client-ID' => $this->clientId,
+    ];
+  }
+
+
   public function checkResponse(ResponseInterface $response, $data)
   {
     if (!empty($data['errors'])) {
